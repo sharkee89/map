@@ -1,0 +1,14 @@
+<div class="pin-item-container" (click)="onPinItemClick(pin)" [ngClass]="{'selected': pin.selected}">
+    <div class="pin-item-container__data">
+        <div class="pin-item-container__data--row">Listing #{{pin.propertyID}}</div>
+        <div class="pin-item-container__data--row">
+            <span>{{pin.streetAddress}}, </span>
+            <span>{{pin.city}}</span>
+        </div>
+        <div class="pin-item-container__data--row"></div>
+        <div class="pin-item-container__data--row">{{pin.highValueAmenities?.length}} High value amentities</div>
+    </div>
+    <div class="pin-item-container__image">
+        <img [src]="pin.photo" alt="photo">
+    </div>
+</div>

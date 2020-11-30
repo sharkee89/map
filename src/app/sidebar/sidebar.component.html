@@ -1,0 +1,14 @@
+<div class="sidebar-container">
+    <div class="sidebar-container__header">
+        <app-header
+            [agent]="apartmentData.agentInfo"
+            [filterConfig]="filterConfig"
+            [maxPrice]="maxPrice" 
+            [maxBed]="maxBed"
+            (filterSet)="onFilterSet($event)">
+        </app-header>
+    </div>
+    <div class="sidebar-container__pin-list">
+        <app-pin-list [pins]="apartmentData.records"></app-pin-list>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+.header {
+    &__agent {
+        padding: 1em;
+        background-color: rgb(73, 173, 233);
+        color: #ffffff;
+        font-weight: bold;
+    }
+    &__filter {
+        padding: 1em;
+        background-color: rgb(73, 173, 233);
+        color: #ffffff;
+        cursor: pointer;
+        &--header {
+            display: flex;
+            &--filters {
+                flex: 1;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                &__filter {
+                    & > div:first-child {
+                        margin-bottom: .5em;
+                    }
+                }
+            }
+            &--center {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                cursor: pointer;
+            }
+        }
+        &--value {
+            margin-top: .5em;
+            display: flex;
+            align-items: center;
+            &--slider {
+                flex: 3;
+            }
+            &--multiselect {
+                flex: 3;
+                display: flex;
+                grid-column-gap: 0.5em;
+                & > span {
+                    border: 1px solid #FFFFFF;
+                    padding: .5em;
+                    cursor: pointer;
+                    &.selected {
+                        background-color: #ffffff;
+                        border: 1px solid rgb(73, 173, 233);
+                        color: rgb(73, 173, 233);
+                    }
+                }
+            }
+            &--action {
+                flex: 1;
+                button {
+                    border: 1px solid #ffffff;
+                    background: transparent;
+                    color: #ffffff;
+                    padding: 1em 3em;
+                    cursor: pointer;
+                    &:hover {
+                        border-color: rgb(73, 173, 233);
+                        background-color: #ffffff;
+                        color: rgb(73, 173, 233);
+                    }
+                }
+            }
+        }
+    }
+}

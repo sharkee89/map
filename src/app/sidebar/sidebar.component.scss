@@ -1,0 +1,13 @@
+.sidebar-container {
+    height: 100vh;
+    min-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden!important;
+    &__header {
+
+    }
+    &__pin-list {
+        border-right: 1px solid rgb(73, 173, 233);
+        padding-top: .5em;
+    }
+}

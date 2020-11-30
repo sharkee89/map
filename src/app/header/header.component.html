@@ -1,0 +1,44 @@
+<div class="header">
+    <div class="header__agent">
+        <span class="header__agent--name">
+            {{agent.firstname}} {{agent.lastname}} | {{agent.company}}
+        </span>
+    </div>
+    <div class="header__filter">
+        <div class="header__filter--header">
+            <div class="header__filter--header--filters">
+                <div class="header__filter--header--filters__filter" *ngFor="let filter of filterConfig" (click)="setSelectedFilter(filter)">
+                    <div>{{filter.name}}</div>
+                    <div *ngIf="filter.type === 'SLIDER'">
+                        <span>${{filter.min}} - {{filter.max}}</span>
+                    </div>
+                    <div *ngIf="filter.type === 'MULTISELECT'">
+                        <span *ngFor="let value of filterValue.selectedRooms; let last = last;">
+                            <span *ngIf="value === 0">Studio, </span>
+                            <span *ngIf="value > 0">{{value}}<span *ngIf="!last">, </span></span>
+                        </span>
+                    </div>
+                </div>    
+            </div>
+            <div class="header__filter--header--center" (click)="onCenterMapClick()">
+                Center Map
+            </div>
+        </div>
+        <div *ngIf="selectedFilter" class="header__filter--value">
+            <div class="header__filter--value--slider" *ngIf="selectedFilter.type === 'SLIDER'">
+                <div>Price range: {{filterValue.priceRange}}$</div>
+                <input type="range" [(ngModel)]="filterValue.priceRange" [min]="selectedFilter.min" [max]="selectedFilter.max" value="10">
+            </div>
+            <div class="header__filter--value--multiselect" *ngIf="selectedFilter.type === 'MULTISELECT'">
+                <span *ngFor="let value of selectedFilter.values" (click)="setSelectedRooms(value)"
+                    [ngClass]="{'selected': filterValue.selectedRooms.includes(value)}">
+                    <span *ngIf="value === 0">Studio</span>
+                    <span *ngIf="value > 0">{{value}} Bed</span>
+                </span>
+            </div>
+            <div class="header__filter--value--action">
+                <button (click)="setFilter()">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
